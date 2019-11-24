@@ -47,7 +47,7 @@ export class App extends React.PureComponent {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text style={{ color: 'red', fontSize: 30, justifyContent: 'center' }}>Ternyata codepush v2 berhasil</Text>
+        <Text style={{ color: 'red', fontSize: 30, justifyContent: 'center' }}>KIta ada perubahan nih di v3</Text>
         <TouchableOpacity style={{ height: 40, width: 250, justifyContent: 'center', alignItems: 'center', backgroundColor: 'blue' }} onPress={() => this.codePushSync()}>
           <Text style={{ textAlign: 'center' }}>
             Klik untuk mencoba codepush
