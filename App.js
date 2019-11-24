@@ -38,7 +38,8 @@ const App: () => React$Node = () => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <TouchableOpacity style={{ height: 40, width: 250, justifyContent: 'center', alignItems: 'center' }} onPress={() => this.codePushSync()}>
+      <Text style={{ color: 'red', fontSize: 30, justifyContent: 'center' }}>Codepush sudah bisa dijalankan</Text>
+      <TouchableOpacity style={{ height: 40, width: 250, justifyContent: 'center', alignItems: 'center', backgroundColor: 'blue' }} onPress={() => this.codePushSync()}>
         <Text style={{ textAlign: 'center' }}>
           Klik untuk mencoba codepush
         </Text>
