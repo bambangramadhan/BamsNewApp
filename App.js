@@ -17,22 +17,30 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
 import CodePush from 'react-native-code-push';
 
 export class App extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      logs: []
+    }
+  }
 
   codePushSync = () => {
+    // Navigation.push(this.props.componentId, navigation.views.Bams())
+    this.setState({ logs: ['Started at ' + new Date()] });
     CodePush.sync({
       updateDialog: true,
       installMode: CodePush.InstallMode.IMMEDIATE
+    }, (status) => {
+      for (var key in CodePush.SyncStatus) {
+        if (status === CodePush.SyncStatus[key]) {
+          this.setState(prevState => ({ logs: [...prevState.logs, key.replace(/_/g, '')] }));
+          break;
+        }
+      }
     });
   }
 
@@ -45,49 +53,12 @@ export class App extends React.PureComponent {
             Klik untuk mencoba codepush
           </Text>
         </TouchableOpacity>
+        <Text style={{ marginTop: 150 }}>
+          {JSON.stringify(this.state.logs)}
+        </Text>
       </View >
     );
   };
 }
-
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
 
 export default CodePush(App);
