@@ -19,6 +19,7 @@ import {
 
 
 import CodePush from 'react-native-code-push';
+import Sound from 'react-native-sound';
 
 export class App extends React.PureComponent {
   constructor(props) {

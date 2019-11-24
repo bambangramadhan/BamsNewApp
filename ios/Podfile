@@ -36,6 +36,8 @@ target 'BamsNewApp' do
 
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
 
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+
   target 'BamsNewAppTests' do
     inherit! :search_paths
     # Pods for testing
