@@ -20,6 +20,7 @@ import {
 
 import CodePush from 'react-native-code-push';
 import Sound from 'react-native-sound';
+import QRCode from 'react-native-qrcode';
 
 export class App extends React.PureComponent {
   constructor(props) {
@@ -57,6 +58,11 @@ export class App extends React.PureComponent {
         <Text style={{ marginTop: 150 }}>
           {JSON.stringify(this.state.logs)}
         </Text>
+        <QRCode
+          value={'this.state.text'}
+          size={200}
+          bgColor='purple'
+          fgColor='white' />
       </View >
     );
   };
