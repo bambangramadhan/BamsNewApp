@@ -1,3 +1,4 @@
 <resources>
+	<string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">M0S4uxlgZQKmIqorTG7jRkyaZ1WB0hZHYvLE-</string>
     <string name="app_name">BamsNewApp</string>
 </resources>
