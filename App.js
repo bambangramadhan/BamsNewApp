@@ -27,7 +27,7 @@ import {
 
 import CodePush from 'react-native-code-push';
 
-const App: () => React$Node = () => {
+export class App extends React.PureComponent {
 
   codePushSync = () => {
     CodePush.sync({
@@ -36,17 +36,20 @@ const App: () => React$Node = () => {
     });
   }
 
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ color: 'red', fontSize: 30, justifyContent: 'center' }}>Codepush sudah bisa dijalankan</Text>
-      <TouchableOpacity style={{ height: 40, width: 250, justifyContent: 'center', alignItems: 'center', backgroundColor: 'blue' }} onPress={() => this.codePushSync()}>
-        <Text style={{ textAlign: 'center' }}>
-          Klik untuk mencoba codepush
-        </Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ color: 'red', fontSize: 30, justifyContent: 'center' }}>Codepush sudah bisa dijalankan</Text>
+        <TouchableOpacity style={{ height: 40, width: 250, justifyContent: 'center', alignItems: 'center', backgroundColor: 'blue' }} onPress={() => this.codePushSync()}>
+          <Text style={{ textAlign: 'center' }}>
+            Klik untuk mencoba codepush
+          </Text>
+        </TouchableOpacity>
+      </View >
+    );
+  };
+}
+
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -87,4 +90,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default CodePush(App);
